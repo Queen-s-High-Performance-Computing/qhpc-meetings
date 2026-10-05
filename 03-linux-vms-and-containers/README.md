@@ -1,27 +1,16 @@
 # Meeting 03: Linux, VMs and Containers
 
+## Slide Content
+
+We have delivered slide content thus far (check onQ for slides if you were not present). Now its time to explore on your own. 
+
 ## Now, what do you want to learn?
 
 You can explore Linux, package an application in a container, or build a small virtual cluster on your own computer. Choose **one** question that interests you and work toward something you can explain to someone else.
 
-We have **30–45 minutes**: about 3 minutes to choose, 22–37 minutes to investigate, and 5 minutes to share. Work independently or pair up with someone exploring the same topic. Use the documentation as a starting point and decide your own next steps.
+You may work independently or pair up with someone exploring the same topic. Use the documentation as a starting point and decide your own next steps.
 
 If you do not know where to start, ask us. If these options will not teach you anything new, propose a harder challenge. A working experiment, an explained error, or a justified setup plan all count as progress. You do not need to install every tool or finish an installation to learn something useful.
-
-## Using this repository
-
-A **repository**, or **repo**, holds a project's files and their version history. **Git** tracks changes; **GitHub** hosts repositories and supports collaboration. A `README.md` is a document written in Markdown, which GitHub displays as a formatted page. [More about repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories).
-
-Everything for this meeting is on this page. You can follow the links in your browser without downloading the slides or installing Git.
-
-Try a little repository navigation while you are here:
-
-1. Find `meeting-03/README.md` in the file list and open it.
-2. Use the activity links below to jump to a topic.
-3. Switch between the rendered README and its source to see how headings, links and code blocks are written in Markdown.
-4. Look at the file's history to see how changes are recorded. A new repository may have only its initial commit.
-
-**Optional Git practice:** with Git installed, copy this repository's HTTPS clone URL from GitHub's **Code** menu. In a terminal, type `git clone ` followed by that URL. Enter the new directory, then run `git status` and `git log --oneline`. A clone is your local copy, so editing it does not immediately change the GitHub version. [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 ## Choose a topic
 
