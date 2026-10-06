@@ -1,0 +1,11 @@
+# All three logical nodes still share one computer's CPU and memory.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+    labels:
+      qhpc-role: mpi-worker
+  - role: worker
+    labels:
+      qhpc-role: mpi-worker

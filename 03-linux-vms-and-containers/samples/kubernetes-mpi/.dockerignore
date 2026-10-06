@@ -1,0 +1,5 @@
+*
+!Dockerfile
+!mpi_hello.c
+!ssh_config
+!sshd_config

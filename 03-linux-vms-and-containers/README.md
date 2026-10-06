@@ -16,17 +16,18 @@ If you do not know where to start, ask us. If these options will not teach you a
 
 | Activity | A good starting point if… |
 | --- | --- |
-| [A. Terminal basics](#a-get-comfortable-in-a-terminal) | You are new to the command line |
-| [B. Linux on Windows with WSL](#b-explore-linux-on-windows-with-wsl) | You use Windows and want a Linux environment |
-| [C. Linux in a virtual machine](#c-run-linux-in-a-virtual-machine) | You want to explore a complete guest operating system |
-| [D. Run and inspect a container](#d-run-and-inspect-a-container) | You know basic terminal commands |
-| [E. A local Kubernetes cluster](#e-build-a-local-kubernetes-cluster) | You understand containers and have a working runtime |
-| [F. Automate with Ansible](#f-automate-a-small-task-with-ansible) | You are comfortable in a shell and have Python available |
-| [G. Investigate dual booting](#g-investigate-dual-booting) | You want to research Linux running directly on your computer |
-| [H. Design a Proxmox lab](#h-design-a-small-proxmox-lab) | You are interested in servers and virtualization |
-| [I. Your own challenge](#i-propose-your-own-challenge) | You want to go beyond this menu |
+| [Terminal basics](#get-comfortable-in-a-terminal) | You are new to the command line |
+| [Linux on Windows with WSL](#explore-linux-on-windows-with-wsl) | You use Windows and want a Linux environment |
+| [Linux in a virtual machine](#run-linux-in-a-virtual-machine) | You want to explore a complete guest operating system |
+| [Text editors: Vim and nano](#text-editors-vim-and-nano) | You want to practise editing files inside a terminal |
+| [Run and inspect a container](#run-and-inspect-a-container) | You know basic terminal commands |
+| [A local Kubernetes cluster](#build-a-local-kubernetes-cluster) | You understand containers and have a working runtime |
+| [Automate with Ansible](#automate-a-small-task-with-ansible) | You are comfortable in a shell and have Python available |
+| [Investigate dual booting](#investigate-dual-booting) | You want to research Linux running directly on your computer |
+| [Design a Proxmox lab](#design-a-small-proxmox-lab) | You are interested in servers and virtualization |
+| [Your own challenge](#propose-your-own-challenge) | You want to go beyond this menu |
 
-The challenges describe outcomes. Choose whichever documentation or experiments help you answer your question. Optional [Kubernetes](#optional-kubernetes-starter) and [Ansible](#optional-ansible-starter) examples are available further down if you want a small starting point.
+The challenges describe outcomes. Choose whichever documentation or experiments help you answer your question. Optional [Kubernetes](#optional-kubernetes-starter), [MPI on Kubernetes](#optional-mpi-on-kubernetes-sample), and [Ansible](#optional-ansible-starter) examples are available further down if you want a small starting point.
 
 ## A few terms to keep handy
 
@@ -42,7 +43,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 ## Activities
 
-### A. Get comfortable in a terminal
+### Get comfortable in a terminal
 
 **Good fit:** New CLI users on macOS, Linux, or an existing WSL installation.
 
@@ -52,9 +53,9 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Extension:** Search text in a file or connect two commands with a pipe.
 
-**Starting resources:** [Ubuntu command-line introduction](https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/), [Apple Terminal guide](https://support.apple.com/guide/terminal/welcome/mac).
+**Starting resources:** [Ubuntu command-line introduction](https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/), [Apple Terminal guide](https://support.apple.com/guide/terminal/welcome/mac), [Linux command-line cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/).
 
-### B. Explore Linux on Windows with WSL
+### Explore Linux on Windows with WSL
 
 **Good fit:** Windows users who want a Linux environment through Windows Subsystem for Linux (WSL); installation may require administrator access and a restart.
 
@@ -66,7 +67,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Starting resources:** [Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install), [What is WSL?](https://learn.microsoft.com/en-us/windows/wsl/about).
 
-### C. Run Linux in a virtual machine
+### Run Linux in a virtual machine
 
 **Good fit:** Students who want a complete guest OS and have room for an OS download and virtual disk.
 
@@ -78,7 +79,27 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Starting resources:** [UTM documentation for macOS](https://docs.getutm.app/), [UTM Ubuntu example](https://docs.getutm.app/guides/ubuntu/). The Ubuntu example is version-specific; check current image and architecture compatibility before following it.
 
-### D. Run and inspect a container
+### Text editors: Vim and nano
+
+**Good fit:** Students who want to edit files in a terminal and can run Vim on macOS, Linux or WSL. Your Vim installation needs to include `vimtutor` and its lesson files.
+
+**Figure out:** How does Vim distinguish commands from typing? How can you move through a file, insert and delete text, undo a change, save your work, and quit?
+
+**Starting point:** Run this in your terminal's shell, rather than inside Vim:
+
+```sh
+vimtutor
+```
+
+The tutor opens a practice copy of its lesson so you can edit it as you learn. Work through as much as helps you answer your question. If the command is unavailable, check whether your Vim installation includes the tutor files.
+
+**Possible outcome:** Edit a short practice file and explain Normal versus Insert mode. Demonstrate saving and quitting, then quitting without saving.
+
+**Extension:** Try searching, moving by words, or repeating an edit. Compare the same editing task in `nano` and Vim.
+
+**Starting resources:** [Vim user manual: using vimtutor](https://vimhelp.org/usr_01.txt.html#vimtutor), [Vim's first steps](https://vimhelp.org/usr_02.txt.html), [GNU nano manual](https://www.nano-editor.org/dist/latest/nano.html).
+
+### Run and inspect a container
 
 **Good fit:** Students comfortable with basic CLI use; installing the runtime may take much of the session.
 
@@ -90,7 +111,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Starting resources:** [Docker Desktop setup](https://docs.docker.com/desktop/), [Docker getting started](https://docs.docker.com/get-started/).
 
-### E. Build a local Kubernetes cluster
+### Build a local Kubernetes cluster
 
 A local cluster lets you explore deployment and recovery without renting cloud machines. Its nodes still share your laptop’s hardware and failure risk. Kubernetes service orchestration differs from HPC batch scheduling with tools such as Slurm.
 
@@ -104,7 +125,7 @@ A local cluster lets you explore deployment and recovery without renting cloud m
 
 **Starting resources:** [kind quick start](https://kind.sigs.k8s.io/docs/user/quick-start/), [Kubernetes basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/index.html).
 
-### F. Automate a small task with Ansible
+### Automate a small task with Ansible
 
 Look for **idempotence**: rerunning a task should leave an already-correct system unchanged. This depends on the module and how you use it.
 
@@ -118,7 +139,7 @@ Look for **idempotence**: rerunning a task should leave an already-correct syste
 
 **Starting resources:** [Ansible installation](https://docs.ansible.com/projects/ansible/latest/installation_guide/intro_installation.html), [Start automating with Ansible](https://docs.ansible.com/projects/ansible/latest/getting_started/get_started_ansible.html).
 
-### G. Investigate dual booting
+### Investigate dual booting
 
 **Good fit:** Students curious about running Linux directly on compatible hardware. Treat this as research and planning during this session.
 
@@ -130,7 +151,7 @@ Look for **idempotence**: rerunning a task should leave an already-correct syste
 
 **Starting resource:** [Ubuntu installation guide, including installing alongside another OS](https://ubuntu.com/tutorials/install-ubuntu-desktop).
 
-### H. Design a small Proxmox lab
+### Design a small Proxmox lab
 
 **Good fit:** Students interested in servers and virtualization. No installation is expected unless a suitable lab machine is already available.
 
@@ -142,7 +163,7 @@ Look for **idempotence**: rerunning a task should leave an already-correct syste
 
 **Starting resources:** [Proxmox VE overview](https://www.proxmox.com/en/products/proxmox-virtual-environment/overview), [Proxmox administration guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.pdf).
 
-### I. Propose your own challenge
+### Propose your own challenge
 
 Choose a question that stretches your existing knowledge. Examples: automate configuration across two VMs, compare a VM-based lab with kind, or investigate recovery after a workload fails.
 
@@ -192,6 +213,107 @@ kind delete cluster --name qhpc-m03
 References: [Creating a Deployment](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_deployment/), [port forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
 </details>
+
+## Optional MPI on Kubernetes sample
+
+The [MPI sample files](samples/kubernetes-mpi/) connect the local-cluster idea to a small parallel program. This is an optional next step after the web application example, rather than a prerequisite for exploring Kubernetes.
+
+**The intuition:** Kubernetes decides where containers run. MPI lets a program's processes communicate. An **MPI operator** teaches Kubernetes about an `MPIJob`: it prepares worker Pods, authentication and a hostfile, then starts a launcher that runs `mpirun`. Kubernetes alone does not turn ordinary code into parallel code.
+
+| File | What it does |
+| --- | --- |
+| [kind.yaml](samples/kubernetes-mpi/kind.yaml) | Creates one control-plane node and two worker nodes on your computer |
+| [mpi_hello.c](samples/kubernetes-mpi/mpi_hello.c) | Prints each rank's hostname, then uses `MPI_Reduce` to sum the ranks' contributions |
+| [Dockerfile](samples/kubernetes-mpi/Dockerfile) | Builds the MPI program and packages Open MPI with SSH support |
+| [mpi-job.yaml](samples/kubernetes-mpi/mpi-job.yaml) | Requests one launcher and two workers, with one MPI rank per worker |
+| [ssh_config](samples/kubernetes-mpi/ssh_config) / [sshd_config](samples/kubernetes-mpi/sshd_config) | Allow the operator's generated keys to connect the launcher to the workers |
+
+Each MPI worker is a **Pod**, placed on a different kind worker **node** by the manifest's anti-affinity rule. Each node is itself a container. The two ranks exchange messages through MPI, and rank 0 prints their combined result. All of these layers still share one computer's CPU and RAM; extra logical nodes do not add hardware or guarantee faster computation.
+
+**Prerequisites:** Docker running in Linux-container mode, kind, kubectl, Git, internet access, and enough spare CPU/RAM for three local nodes and the operator. Docker builds the image for your machine's architecture, including ARM64 on Apple Silicon. On Windows, use a WSL shell with Docker integration. This sample uses the standalone [MPI Operator v0.8.2](https://github.com/kubeflow/mpi-operator/tree/v0.8.2); a full Kubeflow installation is not needed.
+
+The MPIJob manifest has been checked against the pinned operator's schema. The Docker image and cluster workflow have not yet been built or run here. Treat the steps as an experiment and inspect errors before continuing.
+
+### Try the MPI program before adding Kubernetes
+
+From the repository root:
+
+```sh
+cd 03-linux-vms-and-containers/samples/kubernetes-mpi
+
+docker build -t qhpc-mpi-hello:meeting03 .
+docker run --rm qhpc-mpi-hello:meeting03 \
+  mpirun -n 2 --bind-to none /home/mpiuser/mpi_hello
+```
+
+Expect two rank lines, possibly in either order, and `Sum of rank contributions: 3 (expected 3)`. This first run uses one container; it is a way to separate MPI/application problems from Kubernetes problems. The container needs at least two CPU slots for this command.
+
+### Run across Kubernetes worker Pods
+
+Continue from the sample directory. `qhpc-m03-mpi` is a separate disposable cluster; check `kind get clusters` and choose another name if it already exists. If you change the name, update every cluster name and `--context` below to match.
+
+```sh
+kind create cluster --name qhpc-m03-mpi --config kind.yaml --wait 180s
+kind load docker-image qhpc-mpi-hello:meeting03 --name qhpc-m03-mpi
+kubectl --context kind-qhpc-m03-mpi get nodes
+```
+
+Loading the image makes it available to all kind nodes without publishing it to a registry. The manifest uses `imagePullPolicy: Never` so a missing local image produces an explicit error.
+
+Install the operator into this example cluster and wait for it:
+
+```sh
+kubectl --context kind-qhpc-m03-mpi apply --server-side -f \
+  https://raw.githubusercontent.com/kubeflow/mpi-operator/v0.8.2/deploy/v2beta1/mpi-operator.yaml
+kubectl --context kind-qhpc-m03-mpi wait --for=condition=Established \
+  crd/mpijobs.kubeflow.org --timeout=120s
+kubectl --context kind-qhpc-m03-mpi -n mpi-operator rollout status \
+  deployment/mpi-operator --timeout=180s
+```
+
+Now create the namespace and job, then inspect placement and output:
+
+```sh
+kubectl --context kind-qhpc-m03-mpi apply -f mpi-job.yaml
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi wait \
+  --for=condition=Succeeded mpijob/mpi-hello --timeout=180s
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi get pods -o wide
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi logs \
+  -l training.kubeflow.org/job-name=mpi-hello,training.kubeflow.org/job-role=launcher \
+  -c mpi-launcher --tail=-1
+```
+
+Expect rank hostnames corresponding to the two worker Pods and the same sum of `3`. The launcher orchestrates the run; it does not contribute a third rank. The operator supplies MPI's hostfile and SSH keys. The workers run SSH on port 2222 inside the cluster; no host port is published. Containers run as the unprivileged `mpiuser`. SSH host-key checks are relaxed for these disposable Pods, following the upstream example; use a reviewed configuration for a persistent/shared environment.
+
+The worker CPU request `500m` means `0.5` CPU for scheduling; its limit of `1` caps CPU time. Neither value assigns a dedicated physical core. `slotsPerWorker: 1` tells MPI how many ranks to place on each worker, which is a separate setting from Kubernetes resource requests.
+
+**If a step fails:**
+
+- `ErrImageNeverPull`: confirm the image tag matches and repeat `kind load docker-image` after a rebuild.
+- `Pending`: inspect `kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi describe pods`. Two worker nodes with the configured labels are required by the anti-affinity rule; also check resource requests.
+- A wait timeout does not explain the cause. Inspect the Pods, job and events before retrying:
+
+```sh
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi describe mpijob mpi-hello
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi get events --sort-by=.metadata.creationTimestamp
+```
+
+To rerun after a manifest or image change, delete the completed job, rebuild/reload the image if needed, then apply the manifest again:
+
+```sh
+kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi delete mpijob mpi-hello
+kubectl --context kind-qhpc-m03-mpi apply -f mpi-job.yaml
+```
+
+**Questions to investigate:** Where are the worker Pods scheduled? Why are MPI ranks different from Kubernetes nodes and vCPUs? What changes if you remove anti-affinity? Why would requesting a third worker leave a Pod Pending with only two eligible nodes? How could you change the C program to divide a numerical calculation between ranks?
+
+When finished, delete this example cluster and everything inside it:
+
+```sh
+kind delete cluster --name qhpc-m03-mpi
+```
+
+References: [kind multi-node clusters and image loading](https://kind.sigs.k8s.io/docs/user/quick-start/), [MPI Operator's non-root example](https://github.com/kubeflow/mpi-operator/tree/v0.8.2/examples/v2beta1/pi), [Open MPI launching guide](https://docs.open-mpi.org/en/main/launching-apps/quickstart.html), [Kubernetes resource requests and limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ## Optional Ansible starter
 

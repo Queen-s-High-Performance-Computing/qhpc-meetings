@@ -1,0 +1,7 @@
+# MPI Operator supplies short-lived worker names and authentication keys.
+# This relaxed host-key checking is only for the disposable example cluster.
+Host *
+    Port 2222
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR

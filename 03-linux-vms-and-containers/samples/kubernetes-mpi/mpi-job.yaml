@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: qhpc-mpi
+---
+apiVersion: kubeflow.org/v2beta1
+kind: MPIJob
+metadata:
+  name: mpi-hello
+  namespace: qhpc-mpi
+spec:
+  slotsPerWorker: 1
+  launcherCreationPolicy: WaitForWorkersReady
+  sshAuthMountPath: /home/mpiuser/.ssh
+  runPolicy:
+    # Retain Pods so their placement and logs can be inspected afterwards.
+    cleanPodPolicy: None
+  mpiReplicaSpecs:
+    Launcher:
+      replicas: 1
+      restartPolicy: Never
+      template:
+        spec:
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+          containers:
+            - name: mpi-launcher
+              image: qhpc-mpi-hello:meeting03
+              imagePullPolicy: Never
+              command: [mpirun]
+              args: ["-n", "2", "--bind-to", "none", /home/mpiuser/mpi_hello]
+              resources:
+                requests:
+                  cpu: 100m
+                  memory: 64Mi
+                limits:
+                  cpu: "1"
+                  memory: 256Mi
+    Worker:
+      replicas: 2
+      restartPolicy: Never
+      template:
+        metadata:
+          labels:
+            app: qhpc-mpi-worker
+        spec:
+          nodeSelector:
+            qhpc-role: mpi-worker
+          # Put the two worker Pods on different kind worker nodes.
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchLabels:
+                      app: qhpc-mpi-worker
+                  topologyKey: kubernetes.io/hostname
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+          containers:
+            - name: mpi-worker
+              image: qhpc-mpi-hello:meeting03
+              imagePullPolicy: Never
+              ports:
+                - name: ssh
+                  containerPort: 2222
+              readinessProbe:
+                tcpSocket:
+                  port: ssh
+                initialDelaySeconds: 1
+                periodSeconds: 2
+              resources:
+                requests:
+                  cpu: 500m
+                  memory: 64Mi
+                limits:
+                  cpu: "1"
+                  memory: 256Mi

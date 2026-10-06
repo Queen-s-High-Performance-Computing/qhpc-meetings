@@ -1,0 +1,11 @@
+Port 2222
+# MPI Operator mounts this job's generated key and authorized_keys here.
+HostKey /home/mpiuser/.ssh/id_rsa
+AuthorizedKeysFile /home/mpiuser/.ssh/authorized_keys
+PidFile /home/mpiuser/sshd.pid
+StrictModes no
+UsePAM no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitRootLogin no
+AllowUsers mpiuser
