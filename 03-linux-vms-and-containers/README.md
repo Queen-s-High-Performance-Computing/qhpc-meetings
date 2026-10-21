@@ -1,8 +1,10 @@
 # Meeting 03: Linux, VMs and Containers
 
-## Slide Content
+## Meeting context
 
-We have delivered slide content thus far (check onQ for slides if you were not present). Now its time to explore on your own. 
+This meeting introduces ways to work in a Linux environment, isolate applications, and manage small experiments. The slides are available through onQ for members with access. You can use the definitions and activities below without the slides.
+
+By exploring a question, you can learn to distinguish a VM from a container, explain a tool's role, or demonstrate a small terminal, deployment, or automation task. Choose a topic that fits your experience; you do not need to install every tool. Each activity describes its starting requirements and resources.
 
 ## Now, what do you want to learn?
 
