@@ -40,9 +40,9 @@ through independently. Asynchronous work may be added later.
   Prefer official documentation; check version-sensitive claims before adding them.
 - State where commands run, what they change, and the expected result. Include
   cleanup where needed. Preserve existing learner files and configuration.
-- Use `bash` blocks for macOS, Linux, WSL, and Windows Git Bash. Use `powershell`
-  blocks compatible with Windows PowerShell 5.1 for native Windows; PowerShell 7
-  (`pwsh`) is not required. Provide separate snippets where commands or paths differ.
+- Use Bash for all shell commands and `bash` code blocks on every platform.
+  Windows members must install Git for Windows and use Git Bash in Windows Terminal;
+  link the [Windows setup guide](guides/git-on-windows.md) where needed.
   Label shared examples **Bash (macOS / Linux / WSL / Git Bash)**.
   Keep Bash examples compatible with macOS's bundled Bash unless a newer version
   is a stated prerequisite. Check tool/client features separately from shell syntax.
@@ -74,18 +74,9 @@ git diff --check
 git diff --cached --check
 ```
 
-On Windows Git Bash, use `py -3` in place of `python3` if needed.
-
-**Windows PowerShell:**
-
-```powershell
-py -3 scripts/check_repo.py
-git diff --check
-git diff --cached --check
-```
-
-If Python is installed as `python` instead, use that command. Review staged and
-unstaged changes, plus untracked files directly; Git diff checks omit untracked files.
+In Windows Git Bash, use `py -3` or `python` in place of `python3` if needed. Review
+staged and unstaged changes, plus untracked files directly; Git diff checks omit
+untracked files.
 
 The script checks meeting names, IDs, titles, catalogue coverage, and file targets
 in inline Markdown links. It skips code examples and does not check anchors,

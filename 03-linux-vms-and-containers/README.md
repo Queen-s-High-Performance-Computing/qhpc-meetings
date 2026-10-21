@@ -6,6 +6,10 @@ This meeting introduces ways to work in a Linux environment, isolate application
 
 By exploring a question, you can learn to distinguish a VM from a container, explain a tool's role, or demonstrate a small terminal, deployment, or automation task. Choose a topic that fits your experience; you do not need to install every tool. Each activity describes its starting requirements and resources.
 
+## Prerequisites
+
+Use Bash for command-line activities. On Windows, [install Git for Windows](../guides/git-on-windows.md) and open **Git Bash in Windows Terminal**.
+
 ## Now, what do you want to learn?
 
 You can explore Linux, package an application in a container, or build a small virtual cluster on your own computer. Choose **one** question that interests you and work toward something you can explain to someone else.
@@ -47,7 +51,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 ### Get comfortable in a terminal
 
-**Good fit:** New CLI users on macOS, Linux, or an existing WSL installation.
+**Good fit:** New CLI users on macOS, Linux, WSL, or Windows with Git Bash.
 
 **Figure out:** How can you find your current directory, navigate elsewhere, create a practice directory, and copy or rename a file without using a file manager?
 
@@ -61,7 +65,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Good fit:** Windows users who want a Linux environment through Windows Subsystem for Linux (WSL); installation may require administrator access and a restart.
 
-**Figure out:** How do you install a distribution through WSL, open its shell, and distinguish your Linux environment from PowerShell?
+**Figure out:** How do you install a distribution through WSL, open its Bash shell, and identify your Linux environment?
 
 **Possible outcome:** Open a Linux shell and identify the distribution and its home directory, or document the setup requirement preventing progress.
 
@@ -89,7 +93,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Starting point:** Run this in your terminal's shell, rather than inside Vim:
 
-```sh
+```bash
 vimtutor
 ```
 
@@ -182,7 +186,7 @@ Choose a question that stretches your existing knowledge. Examples: automate con
 
 A **Deployment** manages replicas of an application. A **Pod** groups one or more containers. Here, each application Pod runs an NGINX web server.
 
-```sh
+```bash
 kind create cluster --name qhpc-m03 --wait 120s
 kubectl --context kind-qhpc-m03 create deployment web --image=nginx:alpine
 kubectl --context kind-qhpc-m03 rollout status deployment/web --timeout=120s
@@ -193,7 +197,7 @@ The `--context` option selects this local cluster explicitly. If cluster creatio
 
 Once the app is ready, forward a port from your computer to it:
 
-```sh
+```bash
 kubectl --context kind-qhpc-m03 port-forward deployment/web 8080:80
 ```
 
@@ -208,7 +212,7 @@ Keep that command running and open [localhost:8080](http://localhost:8080). Pres
 
 When finished, this removes the example cluster and everything inside it:
 
-```sh
+```bash
 kind delete cluster --name qhpc-m03
 ```
 
@@ -240,7 +244,7 @@ The MPIJob manifest has been checked against the pinned operator's schema. The D
 
 From the repository root:
 
-```sh
+```bash
 cd 03-linux-vms-and-containers/samples/kubernetes-mpi
 
 docker build -t qhpc-mpi-hello:meeting03 .
@@ -254,7 +258,7 @@ Expect two rank lines, possibly in either order, and `Sum of rank contributions:
 
 Continue from the sample directory. `qhpc-m03-mpi` is a separate disposable cluster; check `kind get clusters` and choose another name if it already exists. If you change the name, update every cluster name and `--context` below to match.
 
-```sh
+```bash
 kind create cluster --name qhpc-m03-mpi --config kind.yaml --wait 180s
 kind load docker-image qhpc-mpi-hello:meeting03 --name qhpc-m03-mpi
 kubectl --context kind-qhpc-m03-mpi get nodes
@@ -264,7 +268,7 @@ Loading the image makes it available to all kind nodes without publishing it to 
 
 Install the operator into this example cluster and wait for it:
 
-```sh
+```bash
 kubectl --context kind-qhpc-m03-mpi apply --server-side -f \
   https://raw.githubusercontent.com/kubeflow/mpi-operator/v0.8.2/deploy/v2beta1/mpi-operator.yaml
 kubectl --context kind-qhpc-m03-mpi wait --for=condition=Established \
@@ -275,7 +279,7 @@ kubectl --context kind-qhpc-m03-mpi -n mpi-operator rollout status \
 
 Now create the namespace and job, then inspect placement and output:
 
-```sh
+```bash
 kubectl --context kind-qhpc-m03-mpi apply -f mpi-job.yaml
 kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi wait \
   --for=condition=Succeeded mpijob/mpi-hello --timeout=180s
@@ -295,14 +299,14 @@ The worker CPU request `500m` means `0.5` CPU for scheduling; its limit of `1` c
 - `Pending`: inspect `kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi describe pods`. Two worker nodes with the configured labels are required by the anti-affinity rule; also check resource requests.
 - A wait timeout does not explain the cause. Inspect the Pods, job and events before retrying:
 
-```sh
+```bash
 kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi describe mpijob mpi-hello
 kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi get events --sort-by=.metadata.creationTimestamp
 ```
 
 To rerun after a manifest or image change, delete the completed job, rebuild/reload the image if needed, then apply the manifest again:
 
-```sh
+```bash
 kubectl --context kind-qhpc-m03-mpi -n qhpc-mpi delete mpijob mpi-hello
 kubectl --context kind-qhpc-m03-mpi apply -f mpi-job.yaml
 ```
@@ -311,7 +315,7 @@ kubectl --context kind-qhpc-m03-mpi apply -f mpi-job.yaml
 
 When finished, delete this example cluster and everything inside it:
 
-```sh
+```bash
 kind delete cluster --name qhpc-m03-mpi
 ```
 
@@ -344,7 +348,7 @@ The play targets Ansible's implicit `localhost`, which represents your own machi
 
 Run these commands from the directory containing `hello.yml`:
 
-```sh
+```bash
 ansible-playbook hello.yml
 ansible-playbook hello.yml
 ```

@@ -6,7 +6,7 @@ Connect to the CAC, use Vim to create a job script in `~/qhpc`, and submit it wi
 
 - Complete the [SSH-key mini guide](../guides/ssh-keys.md) on your computer, or reuse an existing key.
 - An active CAC account and your own CAC username.
-- Use Bash on macOS, Linux, WSL, or Windows Git Bash; Windows PowerShell is also supported. [Install Git Bash](../guides/git-on-windows.md) if needed.
+- Use Bash on macOS, Linux, or WSL. On Windows, [install Git for Windows](../guides/git-on-windows.md) and open **Git Bash in Windows Terminal**.
 - Basic terminal navigation and text editing with `vim`; see [Meeting 03](../03-linux-vms-and-containers/README.md#get-comfortable-in-a-terminal) if needed.
 
 ## 1. Configure SSH on your computer
@@ -23,13 +23,7 @@ On **your computer**, open `~/.ssh/config` in your preferred editor. For example
 vim ~/.ssh/config
 ```
 
-**Windows PowerShell:**
-
-```powershell
-notepad "$env:USERPROFILE\.ssh\config"
-```
-
-Save the filename as `config`, without `.txt`. Keep existing entries and add the block below near the start. Replace `YOUR_CAC_USERNAME` with your username and adjust `IdentityFile` if you used another key filename.
+Keep existing entries and add the block below near the start. Replace `YOUR_CAC_USERNAME` with your username and adjust `IdentityFile` if you used another key filename.
 
 ```sshconfig
 Host cac
@@ -59,16 +53,9 @@ cat ~/.ssh/id_ed25519.pub |
     ssh cac "umask 077; mkdir -p ~/.ssh; tr -d '\r' >> ~/.ssh/authorized_keys"
 ```
 
-**Windows PowerShell** — append the public key to your CAC account:
+Connect using your shortcut:
 
-```powershell
-Get-Content "$env:USERPROFILE\.ssh\id_ed25519.pub" |
-    ssh cac "umask 077; mkdir -p ~/.ssh; tr -d '\r' >> ~/.ssh/authorized_keys"
-```
-
-**Bash or PowerShell:** connect using your shortcut:
-
-```console
+```bash
 ssh cac
 ```
 
@@ -76,7 +63,7 @@ On your first connection, confirm the host fingerprint using CAC guidance before
 
 ### Optional: reuse an authenticated connection
 
-**macOS / Linux / WSL only.** Native Windows OpenSSH does not support `ControlMaster`; skip this subsection when using PowerShell.
+**macOS / Linux / WSL only.**
 
 **Connection multiplexing** lets later `ssh cac` sessions from your computer reuse an existing connection without repeating the password and 2FA prompts. The first connection still authenticates normally.
 
@@ -156,8 +143,6 @@ To cancel this job while pending or running, use `scancel JOBID`. Keep your scri
 - [CAC cluster information and documentation](https://cac.queensu.ca/systems/traditional-hpc/).
 - [OpenSSH client configuration](https://man.openbsd.org/ssh_config): host settings, keys, and connection multiplexing; [SSH control commands](https://man.openbsd.org/ssh.1#O).
 - [ssh-copy-id manual](https://github.com/openssh/openssh-portable/blob/master/contrib/ssh-copy-id.1): register your public key on a remote server.
-- [Microsoft: SSH on Windows](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh), [client configuration paths](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-server-configuration), and [reading files in Windows PowerShell 5.1](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content?view=powershell-5.1).
-- [Windows OpenSSH feature limits](https://github.com/PowerShell/Win32-OpenSSH/wiki/Project-Scope): connection sharing is unavailable in the native client.
 - [Apple's SSH Keychain settings](https://developer.apple.com/library/archive/technotes/tn2449/_index.html): `UseKeychain` and `AddKeysToAgent`.
 - [Vim: first steps](https://vimhelp.org/usr_02.txt.html): editing, saving, and quitting.
 - [Slurm quick start](https://slurm.schedmd.com/quickstart.html); command references: [sbatch](https://slurm.schedmd.com/sbatch.html), [squeue](https://slurm.schedmd.com/squeue.html), [sacct](https://slurm.schedmd.com/sacct.html), and [scancel](https://slurm.schedmd.com/scancel.html).

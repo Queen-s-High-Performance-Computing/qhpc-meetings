@@ -35,9 +35,9 @@ the user's work while making a targeted change.
   expected results, and cleanup where needed. Do not invent cluster settings.
 - Name the app/shell to open and show a short availability check for required tools.
   Use clear placeholders and preserve existing learner files and configuration.
-- Use `bash` blocks for macOS, Linux, WSL, and Windows Git Bash. Use Windows
-  PowerShell 5.1-compatible syntax (`powershell` blocks); do not require PowerShell 7
-  or `pwsh`. Include alternatives for local commands/paths and note platform limits.
+- Use Bash for all shell commands and `bash` code blocks on every platform.
+  Windows members must install Git for Windows and use the Git Bash profile in
+  Windows Terminal. Note platform-specific tool features where relevant.
   Label shared examples **Bash (macOS / Linux / WSL / Git Bash)** so Windows members
   can recognize their Bash option alongside the others.
   After SSH login, CAC commands use the remote Linux shell on every platform.
@@ -65,8 +65,8 @@ git diff --check
 git diff --cached --check
 ```
 
-Run from the repository root with Python 3.9 or newer; see CONTRIBUTING.md for
-Windows commands. Inspect untracked files directly: Git diff checks omit them.
+Run from the repository root with Python 3.9 or newer; see CONTRIBUTING.md if Python
+has a different command name. Inspect untracked files directly: Git diff checks omit them.
 Review the Markdown layout. The checker does not validate heading anchors,
 external URLs, rendering, or sample behavior. Report checks and execution limits
 briefly, including platforms or CAC steps that were not run.

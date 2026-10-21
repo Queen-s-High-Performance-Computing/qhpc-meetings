@@ -17,6 +17,8 @@ The resources are written for attendees, with enough context for newcomers. You 
 
 Open a meeting above and choose an activity that interests you. Each guide includes starting resources and possible outcomes, with options for different experience levels.
 
+All shell examples use Bash. Windows members use **Git Bash in Windows Terminal**.
+
 Setup guides: [Git and Git Bash on Windows](guides/git-on-windows.md) · [Create an SSH key](guides/ssh-keys.md).
 
 Some activities use the CAC cluster available to the team; those guides describe the access and tools you need. The repository may also support asynchronous tasks in future.
@@ -31,7 +33,7 @@ Folders use permanent decimal meeting IDs (`03-topic`, `10-topic`) so they sort 
 
 From the repository root, check structure and local file links with Python 3.9 or newer:
 
-```sh
+```bash
 python3 scripts/check_repo.py
 git diff --check
 ```

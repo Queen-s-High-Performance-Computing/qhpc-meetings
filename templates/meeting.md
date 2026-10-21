@@ -16,8 +16,8 @@ and preparatory reading before the activity. -->
 
 <!-- Use short steps for a tutorial, or a focused question/task for exploration.
 Distinguish local and CAC commands; state working directories and expected results.
-Use bash blocks for macOS/Linux/WSL/Git Bash. Use powershell blocks compatible with
-Windows PowerShell 5.1 on Windows; do not require PowerShell 7.
+Use Bash and bash code blocks for all shell commands. Windows members use Git Bash
+in Windows Terminal, installed through the Windows setup guide.
 Label shared snippets "Bash (macOS / Linux / WSL / Git Bash)".
 Link samples under samples/ if useful. Include cleanup where needed. -->
 
