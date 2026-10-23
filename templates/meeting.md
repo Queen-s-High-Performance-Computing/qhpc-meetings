@@ -1,31 +1,35 @@
 # Meeting NN: Topic
 
-<!-- Copy to NN-topic/README.md. Replace prompts and remove author comments.
-Use paths relative to the new meeting folder. Keep the guide concise. -->
+<!-- Copy to NN-topic/README.md. Follow ../CONTRIBUTING.md, replace prompts,
+and remove author comments. Use paths relative to the new meeting folder. -->
 
 State what members will do and how it connects to the meeting, in one or two sentences.
 
 ## Prerequisites
 
-<!-- Remove this section when unnecessary. List required knowledge, access, tools,
-and preparatory reading before the activity. -->
+<!-- Use short bullet lists. Remove empty groups or the whole section when unnecessary. -->
 
-- Required knowledge, tool, account, or resource.
+### Software and access
+
+- Required tool or account, with a quick availability check and setup link.
+
+### Core skills and guides
+
+<!-- Keep the following link for every meeting involving Linux; remove it otherwise. -->
+
+- [Using the Linux CLI](../guides/using-the-linux-cli.md)
+- Other required guides, listed by linked title.
 
 ## Activity
 
-<!-- Use short steps for a tutorial, or a focused question/task for exploration.
-Distinguish local and CAC commands; state working directories and expected results.
-Use Bash and bash code blocks for all shell commands. Windows members use Git Bash
-in Windows Terminal, installed through the Windows setup guide.
-Label shared snippets "Bash (macOS / Linux / WSL / Git Bash)".
-Link samples under samples/ if useful. Include cleanup where needed. -->
+<!-- Use short steps or a focused exploration task. State where commands run,
+expected results, and cleanup. Keep requirements for optional activities beside them. -->
 
 Describe the task and a concrete outcome. Add an extension only if useful.
 
 ## Resources
 
-<!-- Link website documentation for each technical tool at least once.
-Add useful videos if relevant; use descriptive labels. -->
+<!-- Add official documentation and optional resources. Follow the media rules
+in CONTRIBUTING.md for YouTube thumbnails, PDFs, and graphics. -->
 
 - Add documentation or video links here.

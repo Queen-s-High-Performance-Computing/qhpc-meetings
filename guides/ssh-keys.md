@@ -1,14 +1,13 @@
 # Create an SSH key
 
-Create a key on your own computer, then register its public part with services you use.
+SSH (Secure Shell) lets you securely connect to another computer and run commands. We create an SSH key pair to prove our identity when connecting. Many services use SSH keys for secure authentication.
 
 ## Prerequisites
 
-Use **Bash** on macOS, Linux, or WSL. On Windows, complete [Install Git and Git Bash on Windows](git-on-windows.md), then open the **Git Bash** profile in **Windows Terminal**.
-
-Run `ssh -V`; a version number means the SSH client is ready. Git for Windows includes the SSH tools used below.
-
-Use the same shell throughout setup. Bash paths such as `~/.ssh` refer to that shell's home directory; WSL's home is separate from your Windows profile.
+- **macOS / Linux:** Open **Terminal**.
+- **Windows:** Open **Windows Terminal** with **WSL** or [Git Bash](git-on-windows.md).
+- Run `ssh -V` to check SSH is available.
+- Use the **same shell** throughout; SSH keys created in WSL are not automatically shared with Windows.
 
 ## 1. Create or reuse a key
 
@@ -28,7 +27,7 @@ Replace the email with your own (recommend that its the same email you use with 
 
 If you choose another key filename, adjust later paths.
 
-## 2. Recommended: add the public key to GitHub
+## 2. Strongly Recommended: add the public key to GitHub
 
 This lets you authenticate Git operations over SSH. Display the public key:
 
@@ -40,7 +39,7 @@ cat ~/.ssh/id_ed25519.pub
 
 Copy the entire line. In GitHub, open **Settings → SSH and GPG keys → New SSH key**. Give it a descriptive title, select **Authentication Key**, paste the public key, and save.
 
-For CAC access, continue with [Meeting 04](../04-ssh-and-slurm/README.md#1-configure-ssh-on-your-computer), which registers the public key separately.
+For CAC access, continue with [Meeting 04](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac), which registers the public key separately.
 
 ## Resources
 

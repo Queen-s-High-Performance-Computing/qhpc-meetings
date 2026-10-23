@@ -4,12 +4,19 @@ Connect to the CAC, use Vim to create a job script in `~/qhpc`, and submit it wi
 
 ## Prerequisites
 
-- Complete the [SSH-key mini guide](../guides/ssh-keys.md) on your computer, or reuse an existing key.
-- An active CAC account and your own CAC username.
-- Use Bash on macOS, Linux, or WSL. On Windows, [install Git for Windows](../guides/git-on-windows.md) and open **Git Bash in Windows Terminal**.
-- Basic terminal navigation and text editing with `vim`; see [Meeting 03](../03-linux-vms-and-containers/README.md#get-comfortable-in-a-terminal) if needed.
+### Software and access
 
-## 1. Configure SSH on your computer
+- On macOS or Linux, open **Terminal**. On Windows, open **Windows Terminal** with **WSL** or **Git Bash**.
+- An active CAC account.
+- A text editor on your computer; the activity uses Vim to edit the job script on the CAC.
+
+### Core skills and guides
+
+- [Using the Linux CLI](../guides/using-the-linux-cli.md)
+- **SSH keys:** [Create or reuse an SSH key](../guides/ssh-keys.md#1-create-or-reuse-a-key).
+- **Text editing:** [Meeting 03: Vim and nano](../03-linux-vms-and-containers/README.md#text-editors-vim-and-nano). Practice entering text, saving, and quitting Vim if these are unfamiliar.
+
+## 1. Configure SSH to the CAC
 
 SSH opens a terminal session on another computer. Find your username in the top-right corner of the CAC account portal:
 

@@ -8,7 +8,17 @@ By exploring a question, you can learn to distinguish a VM from a container, exp
 
 ## Prerequisites
 
-Use Bash for command-line activities. On Windows, [install Git for Windows](../guides/git-on-windows.md) and open **Git Bash in Windows Terminal**.
+### Software and access
+
+- On macOS or Linux, open **Terminal**. Check with `bash --version`; expect a version number.
+- On Windows, open **Windows Terminal** with **WSL** or **Git Bash**.
+- Extra software depends on your chosen activity. Check its requirements and setup resources before starting.
+
+### Core skills and guides
+
+Read before the meeting:
+
+- [Using the Linux CLI](../guides/using-the-linux-cli.md)
 
 ## Now, what do you want to learn?
 
@@ -59,7 +69,7 @@ The challenges describe outcomes. Choose whichever documentation or experiments 
 
 **Extension:** Search text in a file or connect two commands with a pipe.
 
-**Starting resources:** [Ubuntu command-line introduction](https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/), [Apple Terminal guide](https://support.apple.com/guide/terminal/welcome/mac), [Linux command-line cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/).
+**Starting resources:** [Linux CLI guide and quick command table](../guides/using-the-linux-cli.md), [Ubuntu command-line introduction](https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/), [Apple Terminal guide](https://support.apple.com/guide/terminal/welcome/mac), [Linux command-line cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/).
 
 ### Explore Linux on Windows with WSL
 
