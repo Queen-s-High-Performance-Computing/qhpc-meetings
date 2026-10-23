@@ -68,9 +68,9 @@ Example:
 
 ```bash
 # Displays preivous use of the cp command
-history | grep cp 
+history | grep cp
 # Prints preivous use of the sbatch command
-history | grep sbatch 
+history | grep sbatch
 ```
 
 **On the CAC**, after [connecting with SSH](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac) using your CAC account, run from any directory:
