@@ -43,21 +43,9 @@ File and folder names are examples.
 | `cd folder` / `cd ..` / `cd ~` | Enter a folder / go up one level / go home. |
 | `mkdir folder` | Create a folder. |
 | `cat notes.txt` | Show a text file's contents. |
-| `cp -i notes.txt backup.txt` | Copy a file; ask before overwriting. |
-| `mv -i backup.txt saved.txt` | Move or rename a file; ask before overwriting. |
-| `rm -i saved.txt` | Ask before deleting a file; does not use the trash. |
-
-## Pipes and grep
-
-`grep` prints lines that match your search. A pipe (`|`) passes one command's output into the next command.
-
-**On the CAC**, after [connecting with SSH](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac) using your CAC account, run from any directory:
-
-```bash
-squeue -u "$USER" | grep -F "qhpc"
-```
-
-This lists your jobs, then keeps rows containing the literal text `qhpc`. Replace `qhpc` with part of the job name you want to find. No matching rows means no output.
+| `cp notes.txt backup.txt` | Copy a file; `backup.txt` is the new copy |
+| `mv backup.txt saved.txt` | Move or rename a file; `saved.txt` is the new name |
+| `rm saved.txt` | Ask before deleting a file |
 
 ## Linux Cheat Sheet
 
@@ -71,6 +59,28 @@ A quick reference for common Linux commands.
 
 - [Ubuntu Linux Cheat Sheet](https://ubuntu.com/server/docs/reference/cli-cheatsheet/): Ubuntu's quick command reference; some commands are specific to Linux or Ubuntu.
 - [LabEx Linux Cheat Sheet](https://linux-commands.labex.io): Another cheat sheet you may use.
+
+## Useful: Pipes and grep
+
+`grep` prints lines that match your search. Its a very useful tool when you need to parse large text output in the terminal. A pipe (`|`) passes one command's output into the next command.
+
+Example:
+
+```bash
+# Displays preivous use of the cp command
+history | grep cp 
+# Prints preivous use of the sbatch command
+history | grep sbatch 
+```
+
+**On the CAC**, after [connecting with SSH](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac) using your CAC account, run from any directory:
+
+```bash
+squeue -u "$USER" | grep -F "qhpc"
+```
+
+This lists your jobs, then keeps rows containing the literal text `qhpc`. Replace `qhpc` with part of the job name you want to find. No matching rows means no output.
+
 
 ## Resources
 
