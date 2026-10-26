@@ -60,7 +60,37 @@ A quick reference for common Linux commands.
 - [Ubuntu Linux Cheat Sheet](https://ubuntu.com/server/docs/reference/cli-cheatsheet/): Ubuntu's quick command reference; some commands are specific to Linux or Ubuntu.
 - [LabEx Linux Cheat Sheet](https://linux-commands.labex.io): Another cheat sheet you may use.
 
-## Useful: Pipes and grep
+## Suggested
+
+### What is an environment variable?
+
+An **environment variable** is a named value that the shell passes to programs it starts. Programs use these values for settings. For example, `HOME` stores the path to your home directory, and `USER` usually stores your username.
+
+Run these commands in your terminal from any directory to print those values. `$` tells the shell to substitute the variable's value.
+
+**Bash (macOS / Linux / WSL / Git Bash):**
+
+```bash
+echo "$HOME"
+echo "$USER"
+```
+
+#### Slurm job environment variables
+
+Slurm sets environment variables inside a running job submitted with `sbatch`. See the [Slurm `sbatch` output environment variables](https://slurm.schedmd.com/sbatch.html#SECTION_OUTPUT-ENVIRONMENT-VARIABLES) for the full list.
+
+| Variable | What it contains |
+| --- | --- |
+| `SLURM_JOB_ID` | The job's numeric ID. |
+| `SLURM_JOB_NAME` | The job's name. |
+| `SLURM_SUBMIT_DIR` | The directory where you ran `sbatch`. |
+| `SLURM_JOB_NODELIST` | The names of nodes allocated to the job. |
+| `SLURM_JOB_NUM_NODES` | The number of allocated nodes. |
+| `SLURM_NTASKS` | The requested task count; set when `--ntasks` or a `--ntasks-per-*` option is used. |
+| `SLURM_CPUS_PER_TASK` | The requested CPUs per task; set when specified, for example with `--cpus-per-task`. |
+| `SLURM_ARRAY_TASK_ID` | The current array task's index; only set for job arrays. |
+
+### Pipes and grep
 
 `grep` prints lines that match your search. Its a very useful tool when you need to parse large text output in the terminal. A pipe (`|`) passes one command's output into the next command.
 

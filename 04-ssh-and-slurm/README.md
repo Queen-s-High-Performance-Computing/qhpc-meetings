@@ -148,6 +148,8 @@ From `~/qhpc` on the CAC:
 sbatch hello.slurm
 ```
 
+See [here](../guides/using-the-linux-cli.md#slurm-job-environment-variables) for more on Slurm-specific environment variables.
+
 Expect `Submitted batch job` followed by a number. Use that number in place of `JOBID` below:
 
 ```bash
