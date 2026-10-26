@@ -11,7 +11,7 @@ The resources are written for attendees, with enough context for newcomers. You 
 | Meeting | Topic | What you can explore |
 | --- | --- | --- |
 | 03 | [Linux, VMs and Containers](03-linux-vms-and-containers/README.md) | Terminal basics, Linux environments, containers, local Kubernetes clusters, Ansible, and Proxmox labs |
-| 04 | [SSH and Slurm on the CAC](04-ssh-and-slurm/README.md) | Configure SSH, edit a job script with Vim, submit it, and inspect its output |
+| 04 | [SSH and Slurm on the CAC](04-ssh-and-slurm/README.md) | Configure SSH, submit a job script with Vim, then run the STREAM benchmark and read it with the roofline model |
 
 ## Available guides
 
