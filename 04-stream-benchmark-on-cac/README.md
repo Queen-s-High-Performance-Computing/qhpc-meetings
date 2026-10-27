@@ -1,4 +1,4 @@
-# Meeting 04: SSH and Slurm on the CAC
+# Meeting 04: STREAM Benchmark on the CAC
 
 Connect to the CAC, use Vim to create a job script in `~/qhpc`, submit it with Slurm,
 and then submit the STREAM memory bandwidth benchmark and use the roofline model to

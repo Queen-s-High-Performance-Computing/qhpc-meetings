@@ -39,7 +39,7 @@ cat ~/.ssh/id_ed25519.pub
 
 Copy the entire line. In GitHub, open **Settings → SSH and GPG keys → New SSH key**. Give it a descriptive title, select **Authentication Key**, paste the public key, and save.
 
-For CAC access, continue with [Meeting 04](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac), which registers the public key separately.
+For CAC access, continue with [Meeting 04](../04-stream-benchmark-on-cac/README.md#1-configure-ssh-to-the-cac), which registers the public key separately.
 
 ## Resources
 

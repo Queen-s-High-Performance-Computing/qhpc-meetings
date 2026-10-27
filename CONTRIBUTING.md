@@ -23,7 +23,7 @@ sufficient to merge.
 
 ## Add a meeting
 
-Use `NN-topic-in-kebab-case`, such as `04-ssh-and-slurm`. IDs are permanent,
+Use `NN-topic-in-kebab-case`, such as `04-stream-benchmark-on-cac`. IDs are permanent,
 zero-padded decimal numbers; keep existing IDs and allow gaps. The current format
 supports `01` through `99`.
 

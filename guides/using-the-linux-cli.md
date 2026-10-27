@@ -103,7 +103,7 @@ history | grep cp
 history | grep sbatch
 ```
 
-**On the CAC**, after [connecting with SSH](../04-ssh-and-slurm/README.md#1-configure-ssh-to-the-cac) using your CAC account, run from any directory:
+**On the CAC**, after [connecting with SSH](../04-stream-benchmark-on-cac/README.md#1-configure-ssh-to-the-cac) using your CAC account, run from any directory:
 
 ```bash
 squeue -u "$USER" | grep -F "qhpc"
