@@ -12,6 +12,7 @@ The resources are written for attendees, with enough context for newcomers. You 
 | --- | --- | --- |
 | 03 | [Linux, VMs and Containers](03-linux-vms-and-containers/README.md) | Terminal basics, Linux environments, containers, local Kubernetes clusters, Ansible, and Proxmox labs |
 | 04 | [STREAM Benchmark on the CAC](04-stream-benchmark-on-cac/README.md) | Configure SSH, submit a job script with Vim, then run the STREAM benchmark and read it with the roofline model |
+| 05 | [Profiling and Optimization](05-profiling-and-optimization/README.md) | Time a C program, compare compiler flags, find its hot spot with perf, and fix a cache problem |
 
 ## Available guides
 
